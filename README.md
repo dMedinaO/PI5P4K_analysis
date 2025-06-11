@@ -19,6 +19,8 @@ https://doi.org/XXXXXX<br>
 - [A summary of the proposed work](#summary)
 - [Requirements and instalation](#requirements)
 - [Raw data and preprocessing](#data)
+- [General comments](#comments)
+- [Contacts](#contacts)
 ---
 
 <a name="summary"></a>
@@ -31,8 +33,64 @@ Salinity fluctuations are a critical environmental factor influencing the distri
 
 ## Requirements
 
+- python=3.10+
+- Bio
+- itertools
+- matplotlib
+- numpy
+- pandas
+- scipy
+- seaborn
+- statsmodels
+- warnings
+- biopython
+
+Based on the requirements, an environment file [environment.yml](environment.yml) was generated. To crete the environment, please write the following command line in the linux terminal:
+
+```
+conda env create -f environment.yml
+```
+
+With the environment created, you can activate the environment
+
+```
+conda activate PI5P4K_analysis_env
+```
+
 <a name="data"></a>
 
 ## Raw data and preprocessing
 
+The raw data used to produce the figures in the paper is available in the folder: [raw_data](raw_data/).
 
+The following content is available:
+
+- [lc50_data](raw_data/lc50_data.csv): Data for LC50 analysis
+- [mortality_data](raw_data/mortality_data.xlsx): Data for mortality analysis
+- [oligos_sequences](raw_data/oligos_sequences.fasta): Raw fasta sequence used in this work
+- [relative_expression](raw_data/relative_expression.xlsx): Data for relative expression analysis
+
+This repository has different implemented notebooks in the folder [notebook_analysis](notebook_analysis/)
+
+- [LC50_analysis.ipynb](notebook_analysis/LC50_analysis.ipynb)
+- [mortality_analysis.ipynb](notebook_analysis/mortality_analysis.ipynb)
+- [relative_expression.ipynb](notebook_analysis/relative_expression.ipynb)
+- [phylogenetic_tree.ipynb](notebook_analysis/phylogenetic_tree.ipynb)
+
+The figures of the paper are automatically generated using each notebook and saved in the folder [figures_paper](figures_paper).
+
+<a name="comments">General comments</a>
+
+The folder [tmp](tmp) contains tmp files produced during the execution of the notebooks. Besides, the folder [external_results_tools](external_results_tools/) contains the following input files:
+
+- [Hit tables result for the alignment sequences](external_results_tools/4J6C457P013-Alignment-HitTable.csv)
+- [Full sequences for the alignment sequences](external_results_tools/seqdump.txt)
+- [Translated raw input sequence in its 6 read frame](external_results_tools/translate.txt)
+
+This project is licensed under the license GNU GENERAL PUBLIC LICENSE
+
+<a name="contacts">Contacts</a>
+
+- Corresponding author: Martha Hengst [mhengst@ucn.cl](mhengst@ucn.cl)
+- First author: Giannina Maya-Hun [gianny.maya@gmail.com](gianny.maya@gmail.com)
+- Data anlysis/implementation: David Medina-Ortiz [david.medina@umag.cl](david.medina@umag.cl )
