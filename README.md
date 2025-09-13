@@ -1,10 +1,12 @@
-# Expression of the PI5P4K-2α gene in *Argopecten purpuratus* under chronic exposure to desalination brine
+# Hypersaline brine induces PI5P4K-2α up-regulation and high mortality in the scallop *Argopecten purpuratus*
+
 
 This repository contains the source files and supplementary information for the implementations and use cases presented in the work:
 
 Giannina Maya-Hun<sup>1</sup>, Rodrigo Orrego<sup>2</sup>, David Medina-Ortiz<sup>3</sup>, Patricia Romero-Murillo<sup>2</sup>, Enzo García-Bartolomei<sup>4</sup>, Fernando Valenzuela<sup>5</sup>, Ricardo Guiñez<sup>2</sup>, Martha Hengst<sup>1*</sup><br>
 
-Expression of the PI5P4K-2α gene in *Argopecten purpuratus* under chronic exposure to desalination brine. <br>
+Hypersaline brine induces PI5P4K-2α up-regulation and high mortality in the scallop *Argopecten purpuratus*
+. <br>
 https://doi.org/XXXXXX<br>
 
 <sup>*1*</sup><sub>Departamento de Ciencias Farmacéuticas, Universidad Católica del Norte, Av. Angamos 0610, 1270709 Antofagasta, Chile.</sub> <br>
@@ -17,6 +19,9 @@ https://doi.org/XXXXXX<br>
 ---
 ## Table of Contents
 - [A summary of the proposed work](#summary)
+- [Methodology](#methodology)
+- [Key results](#results)
+- [Repository description](#repo_define)
 - [Requirements and instalation](#requirements)
 - [Raw data and preprocessing](#data)
 - [General comments](#comments)
@@ -25,9 +30,72 @@ https://doi.org/XXXXXX<br>
 
 <a name="summary"></a>
 
-## Expression of the PI5P4K-2α gene in *Argopecten purpuratus* under chronic exposure to desalination brine.
+## Hypersaline brine induces PI5P4K-2α up-regulation and high mortality in the scallop *Argopecten purpuratus*
 
-Salinity fluctuations are a critical environmental factor influencing the distribution, community structure, and physiological performance of marine organisms. In Chile Atacama Desert, the widespread adoption of reverse osmosis (RO) desalination has led to increasing discharges of hypersaline brine into coastal ecosystems, raising potential risks for native species. This study evaluated the physiological and molecular responses of Argopecten purpuratus, a native scallop of high ecological and economic importance, to brine with an initial salinity of 57.7 g/L under controlled laboratory conditions. Juvenile scallops were exposed for 28 days to different brine dilutions, and expression of the PI5P4K-2α gene was assessed by quantitative real-time PCR in gill tissue. The results revealed statistically significant changes in PI5P4K-2α gene expression in response to hypersaline stress, suggesting a potential role for this gene in osmoregulatory adaptation in A. purpuratus. These findings provide molecular evidence of sublethal effects of desalination brine and contribute baseline data for environmental risk assessments in marine habitats affected by this type of discharge.
+Salinity fluctuations are a major environmental stressor shaping the physiology, survival, and distribution of marine bivalves. In northern Chile, where reverse osmosis desalination is expanding rapidly, the discharge of hypersaline brine into coastal ecosystems has raised concerns about potential ecological risks. Here, we examined the acute and chronic responses of juvenile Argopecten purpuratus to brine effluent with an initial salinity of 57.7 g/L under controlled laboratory conditions. Survival analysis revealed a steep, concentration-dependent response, with an LC₅₀ of 52.8 g/L at 96 h and complete lethality at 57.7 g/L within 48 h. While mortality remained low up to 45.8 g/L, prolonged exposure to 51.8 g/L caused delayed but severe cumulative mortality, reaching ~75% by day 28. At the molecular level, degenerate primers designed from Crassostrea gigas yielded a fragment identified as phosphatidylinositol-5-phosphate 4-kinase type II alpha (PI5P4K-2α). Phylogenetic analyses confirmed the evolutionary placement of this sequence within scallops (Pectinidae), and gene expression assays revealed a significant transient upregulation after 7 days of exposure to elevated salinity, followed by a return to baseline levels. Together, these results provide the first evidence of PI5P4K-2α induction in scallops under hyperosmotic stress and establish A. purpuratus as a sensitive model for evaluating the ecological risks of hypersaline discharges. These findings highlight the need to integrate molecular markers and physiological endpoints into environmental monitoring frameworks in desalination-impacted regions.
+
+---
+
+<a name="methodology"></a>
+
+## Methodology  
+
+The experimental design is summarized in **Figure 1** of the manuscript and encompassed:  
+
+1. **Bioassays**  
+   - Juvenile scallops (*A. purpuratus*, n = 360) acclimated for 14 days.  
+   - Exposure to salinity treatments: 34 g/L (control), 36.4, 45.8, 51.8, and 57.7 g/L.  
+   - Acute (96 h) and chronic (28 d) exposures.  
+   - Mortality recorded and LC₅₀ estimated with a four-parameter log-logistic model.  
+
+2. **Molecular analysis**  
+   - Degenerate primers designed from *Crassostrea gigas*.  
+   - PCR amplification and cloning of target sequences.  
+   - Sequence validation by BLASTx against the NCBI NR database.  
+   - Identification of PI5P4K-2α.  
+
+3. **Phylogenetic analysis**  
+   - Frame selection optimized using Gaussian Mixture Models (GMM).  
+   - Multiple sequence alignment and maximum-likelihood tree construction.  
+   - Placement of *A. purpuratus* sequence within Pectinidae.  
+
+4. **Expression analysis**  
+   - qRT-PCR with EF1A as reference gene.  
+   - Non-parametric statistics (Kruskal–Wallis + Dunn’s post hoc).  
+   - Relative expression profiles across treatments and time points.  
+
+---
+
+<a name="results"></a>
+
+## Key Results  
+
+- LC₅₀ of 52.8 g/L at 96 h, with complete mortality at 57.7 g/L within 48 h.  
+- Progressive mortality observed at 51.8 g/L, reaching ~75% by day 28.  
+- Identification of PI5P4K-2α as a stress-responsive gene in *A. purpuratus*.  
+- Phylogenetic placement confirmed within scallops, clustering with *A. irradians* and *P. maximus*.  
+- Significant transient upregulation of PI5P4K-2α at day 7 under elevated salinity.  
+
+---
+
+<a name="repo_define"></a>
+
+## Repository structure  
+
+```
+PI5P4K_analysis/
+│
+├── data_for_plots/                # Processed datasets  
+├── external_results_tools/        # External results 
+├── figures_paper/                 # Generated figures
+├── plots_generation/              # Implemented notebooks for generating plots
+├── raw_data/                      # Raw datasets  
+├── environment.yml                # Conda environment specification  
+├── requirements.txt               # Python dependencies  
+└── README.md                      # Project description (this file)  
+```
+
+---
 
 <a name="requirements"></a>
 
@@ -94,3 +162,9 @@ This project is licensed under the license GNU GENERAL PUBLIC LICENSE
 - Corresponding author: Martha Hengst [mhengst@ucn.cl](mhengst@ucn.cl)
 - First author: Giannina Maya-Hun [gianny.maya@gmail.com](gianny.maya@gmail.com)
 - Data anlysis/implementation: David Medina-Ortiz [david.medina@umag.cl](david.medina@umag.cl )
+
+## Citation  
+
+If you use this repository, please cite:  
+
+> Maya-Hun, G., Orrego, R., Medina-Ortiz, D., Romero-Murillo, P., García-Bartolomei, E., Valenzuela, F., Guiñez, R., & Hengst, M. (2025). Hypersaline brine induces PI5P4K-2α up-regulation and high mortality in the scallop *Argopecten purpuratus*. [Journal name], [volume(issue)], [pages]. https://doi.org/[DOI].  
